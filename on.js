@@ -1,4 +1,4 @@
-var delay = '3500';
+var delay = '2500';
 function liveongo(delayloc){
   setTimeout(function () {
       get_book();
