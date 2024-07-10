@@ -1,1 +1,1 @@
-document.write('<scr' + 'ipt type="text/javascript" src="//pl23297878.highcpmgate.com/2e/67/8d/2e678d9c64be0d6549becd2526f1d683.js"></scr' + 'ipt>');
+document.write('<scr' + 'ipt type="text/javascript" src="//perilastronaut.com/d3/e5/a9/d3e5a9bb1f13c778562b21557904e784.js"></scr' + 'ipt>');
