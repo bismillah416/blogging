@@ -78,10 +78,21 @@ debugger;
 
       if(keyblogspot==null)
       {
-          var kwna = key.replace(".html","").replace("?m=1","").replace("#","").replace("confrim","").replaceAll('%20','-');
-          getContent(kwna,tema);
-          getToday(kwna);
-          loadData(kwna);
+          kwnablogspot = window.location.href.split("search?q=")[1];
+          if(kwnablogspot==null||kwnablogspot=="")
+          {
+            var kwna = key.replace(".html","").replace("?m=1","").replace("#","").replace("confrim","").replaceAll('%20','-');
+            getContent(kwna,tema);
+            getToday(kwna);
+            loadData(kwna);
+          }
+            else
+          {
+            var kwnablogspot = kwnablogspot.replace(".html","").replace("?m=1","").replace("#","").replace("confrim","").replaceAll('%20','-');
+             getContentBlogspot(kwnablogspot,tema);
+            getToday(kwnablogspot);
+          }
+          
       }else
       {
         var kwnablogspot = keyblogspot.replace(".html","").replace("?m=1","").replace("#","").replace("confrim","").replaceAll('%20','-');
