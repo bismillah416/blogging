@@ -91,7 +91,7 @@ if(parse.searchObject && parse.searchObject['id'] && parse.searchObject['title']
   }
  debugger;
   getContent(kwna,tema);
-  getContent(kwnablogspot,tema,"-blog");
+  getContentBlogspot(kwnablogspot,tema);
   getToday(kwna);
   
   loadData(kwna);
@@ -212,7 +212,7 @@ function hitungKata(str) {
   return kataArray.length;
 }
 
-function getContent(kw,tema,typeblog="",batas="")
+function getContent(kw,tema,batas="")
         {
                   $('#nav-ban').attr('style','background-color:'+rand_color());
                   // document.getElementsByClassName("navbar navbar-expand-lg navbar-dark").style.backgroundColor = generateRandomColor();
@@ -251,7 +251,7 @@ function getContent(kw,tema,typeblog="",batas="")
                     var hasilSpintax = parseSpintax(spintaxText);
                   // const sec = document.getElementsByClassName("main section")[0];
 
-                  document.getElementById("isi-artikel"+typeblog).innerHTML += `
+                  document.getElementById("isi-artikel").innerHTML += `
                 <div style="background-color: white;color: black;padding: 20px 20px 10px 20px;margin-bottom: 20px;">
                 <h1 style="text-align: center;text-transform: uppercase;">${title_bersih}</h1>
                 <br/><center>
@@ -298,7 +298,7 @@ function getContent(kw,tema,typeblog="",batas="")
                                 {
                                   var kwEncodetags = kwtags.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
                                  var kwDecodetags = ucword(decodeURI(kwtags));
-                                  document.getElementById("tags"+typeblog).innerHTML += ''
+                                  document.getElementById("tags").innerHTML += ''
                                      +'<a alt="'+kwDecodetags+'" href="/'+kwEncodetags+'.html" class="btn btn-primary" style="margin: 2px;background-color: #8f8f8f;">'+kwDecodetags+'</a>'
                                   +'';
 
@@ -438,6 +438,259 @@ if(i==3){
               });
 
   document.getElementById('gallery-js').innerHTML+=`
+
+                    <style>
+                        .zoom {
+                          padding: 5px;
+                          transition: transform .2s; /* Animation */
+                          margin: 0 auto;
+                        }
+                        .zoom:hover {
+                          transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+                        }
+                        </style>
+                        <div class="container" style="background-color: #c1c5c4;color: black;padding: 20px 20px 10px 20px;margin-bottom: 20px;">
+                          <h2 style="text-transform: capitalize;" id="title-detail-js">Detail Gallery ${title_bersih} :</h2>
+                        <div id="page-na-js">
+                          <div class="row" id="in-gallery">
+                           
+                             </div>
+                          </div>
+                         </div>                      
+               
+
+  `;
+
+// list_movie('popular');
+}
+
+
+function getContentBlogspot(kw,tema,batas="")
+        {
+                  $('#nav-ban').attr('style','background-color:'+rand_color());
+                  // document.getElementsByClassName("navbar navbar-expand-lg navbar-dark").style.backgroundColor = generateRandomColor();
+                  document.getElementsByClassName("navbar-brand")[0].innerHTML=host.toUpperCase().replaceAll("."," ")+"";
+                  var title_bersih = kwna.replaceAll("-"," ").replaceAll("%27","'").replace("confrim","");
+                  // $('#title-detail').html("Detail Gallery "+title_bersih);
+                  //$('#title-detail').html("");
+                  $('#isi-galery').remove();
+                  var img_head = encode_img('https://tse1.mm.bing.net/th?q='+kwna);
+                  var buttonna = 'Read More';
+                  var kwEncode = encodeURIComponent(kw);
+                  var kwDecode = ucword(decodeURI(title_bersih));
+                     if(type=="b")
+                     {
+                         // img_head = encode_img(gambook64);
+                         if(gambook64==undefined)
+                         {
+                           gambook64 = encode_img('https://tse1.mm.bing.net/th?q='+kwna+'');
+                         }
+                         img_head = gambook64;
+                        buttonna = 'Read Book Now';
+                     }
+                      else if(type=="m")
+                     {
+                         img_head = encode_img('https://tse1.mm.bing.net/th?q='+kwna+'-poster');
+                     }
+
+                     document.title = "Read "+kwDecode+" Online";
+                      var spintaxText = `{stands out|shines|distinguishes itself|stands apart|is notable|is remarkable|emerges} {as|like|in the capacity of|in the role of|as if|in the same manner as} {one of|among} {the premier|the top|the foremost} {outcomes|results|consequences} {tailored specifically for|customized for|designed for|crafted for|tailored for|specially created for} ${postTitle}. {This platform|This site|This website|The platform|The site|The website|This online platform|This online site|This online website} {meticulously curates|carefully selects|painstakingly curates|meticulously selects|scrupulously curates|thoroughly curates} a {plethora|wide range|variety} of {informative|useful} {content|material|information|data|text|articles|resources}, {meticulously selected|carefully chosen} {for its|due to its|because of its|owing to its|on account of its|for the sake of its} {relevance|pertinence} {and|as well as|along with|in addition to|plus|together with} {reliability|trustworthiness}, {serving as|acting as} an {invaluable|indispensable|essential} {resource for your|asset to your|tool for your|aid for your|assistance for your|help for your} {reference needs|informational needs}. {Please|Kindly|Please kindly|If you could|Would you kindly|We kindly ask|We kindly request} {feel at liberty|feel free} to {preserve|save} {and|as well as|along with|in addition to|plus|together with} {bookmark|mark} ${title_bersih} to {facilitate|enable} {seamless|smooth} {access for|entry to|availability for|use for|usage for|utilization for} {future utilization|later use}<br/><br/>
+
+                        {Information|Data} ${title_bersih} on a {website|webpage} refers to the {content|details} {provided|shared} with {users|visitors}. This {information|data} can {include|consist of} {text|written content}, {images|pictures}, {videos|clips}, and {other media|different types of media}. The {purpose|goal} of {providing|offering} this {information|data} is to {inform|educate} or {engage|interact with} the {audience|viewers}.<br/><br/>
+
+                        For ${title_bersih} {instance|example}, a {website|site} about {health|wellness} <a href="">${title_bersih}</a> might {share|provide} {information|details} on {healthy eating|nutritional advice} and {exercise|physical activities}. A {business|company} {website|site} might {offer|present} {information|details} about its {services|products} and {how to contact|ways to reach} the {company|business}.<br/>
+
+                        {Accurate|Correct} and {up-to-date|current} {information|data} is {crucial|essential} for {building|establishing} {trust|confidence} with {users|visitors}. It {helps|aids} {them|users} {make informed decisions|make knowledgeable choices}. {Moreover|Additionally}, the {layout|format} and {presentation|display} of {information|data} {play|have} a {vital|key} {role|part} in {how easily|how quickly} {users|visitors} can {find|locate} and {understand|comprehend} the {content|information}.`;
+                    var hasilSpintax = parseSpintax(spintaxText);
+                  // const sec = document.getElementsByClassName("main section")[0];
+
+                  document.getElementById("isi-artikel-blog").innerHTML += `
+                <div style="background-color: white;color: black;padding: 20px 20px 10px 20px;margin-bottom: 20px;">
+                <h1 style="text-align: center;text-transform: uppercase;">${title_bersih}</h1>
+                <br/><center>
+                <img src="${img_head}" style="padding: 10px;display: block;margin-left: auto;margin-right: auto;">
+                <br/>
+                 <a class="btn btn-danger" onclick="direct_url('${title_bersih}');" href="#" style="background-color: #4CAF50;border: none;color: white; padding: 15px 32px;display: inline-block;font-size: 16px;">${buttonna}</a></center><br/>
+              <h3><a href="${baseUrl}?search=${kwEncode}">${kwDecode}</a></h3>
+              <p align="justify">
+                <b>${title_bersih}</b> ${hasilSpintax}
+              </p>
+                </div><section id="relatedImage" style="--width-card: 440px;margin-top: -40px;"></section><br/><section id="relatedImageSub" style="margin-top: -70px;"></section><div id="gallery-js" style="padding-top: 0px;"></div>`;
+
+
+
+            $.ajax({
+                 url: "https://suggestqueries.google.com/complete/search?hl=en&client=firefox&q="+kw.replaceAll('-',' '),
+                 type: 'GET',
+                  dataType: 'jsonp',
+                  cors: true ,
+                  contentType:'application/json',
+                  secure: true,
+                  headers: {
+                    'Access-Control-Allow-Origin': '*',
+                  },
+                  beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Basic " + btoa(""));
+                  },
+                 success:function(data)
+                 {
+                    // console.log(data[1]);
+                  var out = data[1];
+                  var tags = data[1];  
+                console.log("Tagsna "+tags);
+                // $('#img-widget').attr('src','https://tse1.mm.bing.net/th?q='+tags[2]);
+                if(tags.length != 0)
+                {
+
+
+                            for (itag = 0; itag < tags.length; itag++) 
+                            {
+                                var kwtags = tags[itag];
+                               
+                                if(kwtags!=0)
+                                {
+                                  var kwEncodetags = kwtags.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
+                                 var kwDecodetags = ucword(decodeURI(kwtags));
+                                  document.getElementById("tags-blog").innerHTML += ''
+                                     +'<a alt="'+kwDecodetags+'" href="/'+kwEncodetags+'.html" class="btn btn-primary" style="margin: 2px;background-color: #8f8f8f;">'+kwDecodetags+'</a>'
+                                  +'';
+
+                                  if(itag==2)
+                                  {
+                                    
+                                    // $('#img-widget').attr('src','https://tse1.mm.bing.net/th?q='+kwEncodetags);                                    
+                                    // $('#desk-widget').html('"'+kwDecodetags+'" is popular blog today for reading and searching');
+                                    $('[class="card-img img-fluid rounded-0 my-3 img-responsive"]').attr('src','https://tse1.mm.bing.net/th?q='+kwEncodetags);
+                                    $('[class="card-text text-muted mb-5"]').html('"'+kwDecodetags+'" is popular blog today for reading and searching');
+                                    $('[class="btn btn-warning text-dark py-1"]').attr('href','/'+kwEncodetags+'.html');
+                                    // console.log("masuk sini bang");
+                                  }
+
+                                }
+
+
+                            }
+                }
+
+                  
+
+
+                  if(batas=="")
+                  {
+                    batas = out.length;
+                  }           
+                  for (i = 1; i <= batas; i++) 
+                  {
+                               var kw = out[i];
+                              // console.log(kw);
+                              // var kwEncode = encodeURIComponent(kw);
+                              var extract = "";
+                              // var kwEncode = encodeURIComponent(kw);
+                              var kwEncode = kw.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
+                              var kwDecode = ucword(decodeURI(kw));
+                              var save = kwEncode;
+                              var img = encode_img('https://tse1.mm.bing.net/th?q='+kwEncode);
+                              var img_save = img+"&s="+save;
+                             
+                              // alert(tema);
+                            
+                              if(tema=='1')
+                              {
+                                   document.getElementById("tambahan-box").innerHTML += ''
+                                        +'<li class="list-group-item" style="margin-bottom: 5px;">'
+                                         +'<div class="media align-items-lg-center flex-column flex-lg-row p-3">'
+                                          +'<div class="media-body order-2 order-lg-1">'
+                                            +'<a onclick="direct_url('+"'"+kw+"'"+');" href="#" alt="Visit '+kwDecode+'" style="text-decoration:none;"><h2 class="mt-0 font-weight-bold mb-2">'+kwDecode+'</h2></a>'
+                                            +'<p class="font-italic text-muted mb-0 small"><i id="desk_'+i+'"></i> <b>'+kwDecode+'</b> is one of best result for'+kwDecode+'. Everything in here is for references perpose only. Feel free to save and bookmark <b>'+kwDecode+'</b></p>'
+                                            +'<div class="d-flex align-items-center justify-content-between mt-1">'
+                                              +'<h6 class="font-weight-bold my-2">title: <i>'+kwEncode+'</i></h6>'
+                                            +'</div>'
+                                          +'</div>'
+                                          +'<img src="'+img+'" alt="'+kwDecode+'" width="200" class="ml-lg-5 order-1 order-lg-2" style="object-fit: cover;width: 180px;height: 120px;">'
+                                          +'<a onclick="direct_url('+"'"+kw+"'"+');" href="#" alt="Visit '+kwDecode+'" class="btn btn-success" style="background-color:'+bgcolor+'; border-color:'+bgcolor+'; position: absolute; margin-top: 80px; right: 40px;">'+buttonna+'</a>'
+                                        +'</div>'
+                                      +'</li>'
+                                      +''
+                              }
+                               else
+                              {
+                                 document.getElementById("tambahan-box").innerHTML += ''
+                               +'<div style="background-color: white;color: black;padding: 20px 20px 10px 20px;margin-bottom: 20px;">'
+                                                        +'<aside>'
+                                                      +'<center>'
+                                                          +'<img alt="'+kwDecode+'" src="'+img+'" width="320" height="320" style="width:340px;height:auto;margin-right: 8px;margin-bottom: 8px;" />'
+                                                          +'<br/>'
+                                                        +'<a class="btn btn-danger" target="_blank" href="'+img_save+'" style="background-color: '+bgcolor+';border: none;color: white; padding: 15px 32px;display: inline-block;font-size: 16px;"><i class="fa fa-download"></i> Save Image</a>'
+                                                      +'</center>'
+                                                      +'<br/>'
+                                                          +'<h2 style="text-transform: capitalize;"><a href="/'+kwEncode+'.html" style="color:blue;">'+kwDecode+'</a></h2>'
+                                                          +'<small>title: <i>'+kwEncode+'</i></small>'
+                                                          +'<p align="justify">'
+                                                           +'<b>'+kwDecode+'</b> is one of best result for '+kwDecode+'. Everything in here is for references perpose only. Feel free to save and bookmark <b>'+kwDecode+'</b>, <i id="desk_'+i+'"></i> <br/><p align="right"><br/><a class="btn btn-danger"  href="/'+kwEncode+'.html" style="border: none;color: white; padding: 15px 32px;display: inline-block;font-size: 16px;">'+buttonna+'</a></p>'
+                                                          +'</p>'
+                                                      +'</aside>'
+                                                  +'</div>'
+                                                 +'';
+                              }
+
+
+
+        var spintaxText = "{stands out|shines|distinguishes itself|stands apart|is notable|is remarkable|emerges} {as|like|in the capacity of|in the role of|as if|in the same manner as} {one of|among} {the premier|the top|the foremost} {outcomes|results|consequences} {tailored specifically for|customized for|designed for|crafted for|tailored for|specially created for} "+kw+". {This platform|This site|This website|The platform|The site|The website|This online platform|This online site|This online website} {meticulously curates|carefully selects|painstakingly curates|meticulously selects|scrupulously curates|thoroughly curates} a {plethora|wide range|variety} of {informative|useful} {content|material|information|data|text|articles|resources}, {meticulously selected|carefully chosen} {for its|due to its|because of its|owing to its|on account of its|for the sake of its} {relevance|pertinence} {and|as well as|along with|in addition to|plus|together with} {reliability|trustworthiness}, {serving as|acting as} an {invaluable|indispensable|essential} {resource for your|asset to your|tool for your|aid for your|assistance for your|help for your} {reference needs|informational needs}. {Please|Kindly|Please kindly|If you could|Would you kindly|We kindly ask|We kindly request} {feel at liberty|feel free} to {preserve|save} {and|as well as|along with|in addition to|plus|together with} {bookmark|mark} "+kw+" to {facilitate|enable} {seamless|smooth} {access for|entry to|availability for|use for|usage for|utilization for} {future utilization|later use}";
+        var hasilSpintax = parseSpintax(spintaxText);
+        var kwEncodeurl = kw.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
+        var img_ori_artikel = encode_img("https://tse1.mm.bing.net/th?q="+kwEncode);
+        var url = "/"+kwEncodeurl+".html";
+        document.getElementById("relatedImage").innerHTML += `
+        <style>section {     display: flex;     flex-wrap: wrap;     justify-content: var(--justify-important); } article aside{background:var(--color-secondary-accent);border-left:4px solid var(--color-secondary);padding:.01rem .8rem} section{display:flex;flex-wrap:wrap;justify-content:var(--justify-important)} section aside{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);box-shadow:var(--box-shadow) var(--color-shadow);margin:1rem;padding:1.25rem;width:var(--width-card)} section aside:hover{box-shadow:var(--box-shadow) var(--color-bg-secondary)} section aside img{max-width:100%}[hidden]{display:none}</style>
+        `;
+
+       
+if(i<=2){
+        document.getElementById("relatedImage").innerHTML += `                 
+          <aside id="in-gallery">
+                                  <a href="#confrim" onclick="get_detail_image('${img_ori_artikel}','${kwEncode}')"><img alt="${kwDecode}" src="https://tse1.mm.bing.net/th?q=${kwEncode}" width="320" height="320" style="object-fit: cover;width: 439px;height: 280px;margin-bottom: 10px;" /></a>
+                                  <br/>
+                              <center>
+                              </center>
+                              <br/>
+                                  <h3><a href="${url}">${kwDecode}</a></h3>
+                                  <p align="justify">
+                                    <b>${kw}</b> ${hasilSpintax}
+                                  </p>
+         </aside>`;
+
+  } 
+if(i==3){
+        document.getElementById("relatedImageSub").innerHTML += `                  
+          <aside id="in-gallery">
+                                  <center><a href="#confrim" onclick="get_detail_image('${img_ori_artikel}','${kwEncode}')"><img alt="${kwDecode}" src="https://tse1.mm.bing.net/th?q=${kwEncode}" style="object-fit: cover;width: 850px;height: 380px;margin-bottom: 10px;" /></a></center>
+                                  <br/>
+                              <center>
+                              </center>
+                              <br/>
+                                  <h3><a href="${url}">${kwDecode}</a></h3>
+                                  <p align="justify">
+                                    <b>${kw}</b> ${hasilSpintax}
+                                  </p>
+         </aside>`;
+
+  } 
+
+
+
+                  }
+
+
+
+
+
+                          
+
+                
+                 }
+              });
+
+  document.getElementById('gallery-js-blog').innerHTML+=`
 
                     <style>
                         .zoom {
@@ -752,6 +1005,3 @@ function get_detail_image(img_ori,title)
                     // auto_direct(directads);
                     // openPopunder(directads)
                 }
-
-
-
