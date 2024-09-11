@@ -701,32 +701,6 @@ if(i==3){
                 
                  }
               });
-
-  document.getElementById('gallery-js-blog').innerHTML+=`
-
-                    <style>
-                        .zoom {
-                          padding: 5px;
-                          transition: transform .2s; /* Animation */
-                          margin: 0 auto;
-                        }
-                        .zoom:hover {
-                          transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-                        }
-                        </style>
-                        <div class="container" style="background-color: #c1c5c4;color: black;padding: 20px 20px 10px 20px;margin-bottom: 20px;">
-                          <h2 style="text-transform: capitalize;" id="title-detail-js">Detail Gallery ${title_bersih} :</h2>
-                        <div id="page-na-js">
-                          <div class="row" id="in-gallery">
-                           
-                             </div>
-                          </div>
-                         </div>                      
-               
-
-  `;
-
-// list_movie('popular');
 }
 
 
