@@ -470,11 +470,11 @@ function getContentBlogspot(kw,tema,batas="")
                   $('#nav-ban').attr('style','background-color:'+rand_color());
                   // document.getElementsByClassName("navbar navbar-expand-lg navbar-dark").style.backgroundColor = generateRandomColor();
                   document.getElementsByClassName("navbar-brand")[0].innerHTML=host.toUpperCase().replaceAll("."," ")+"";
-                  var title_bersih = kwna.replaceAll("-"," ").replaceAll("%27","'").replace("confrim","");
+                  var title_bersih = kwnablogspot.replaceAll("-"," ").replaceAll("%27","'").replace("confrim","");
                   // $('#title-detail').html("Detail Gallery "+title_bersih);
                   //$('#title-detail').html("");
                   $('#isi-galery').remove();
-                  var img_head = encode_img('https://tse1.mm.bing.net/th?q='+kwna);
+                  var img_head = encode_img('https://tse1.mm.bing.net/th?q='+kwnablogspot);
                   var buttonna = 'Read More';
                   var kwEncode = encodeURIComponent(kw);
                   var kwDecode = ucword(decodeURI(title_bersih));
@@ -483,14 +483,14 @@ function getContentBlogspot(kw,tema,batas="")
                          // img_head = encode_img(gambook64);
                          if(gambook64==undefined)
                          {
-                           gambook64 = encode_img('https://tse1.mm.bing.net/th?q='+kwna+'');
+                           gambook64 = encode_img('https://tse1.mm.bing.net/th?q='+kwnablogspot+'');
                          }
                          img_head = gambook64;
                         buttonna = 'Read Book Now';
                      }
                       else if(type=="m")
                      {
-                         img_head = encode_img('https://tse1.mm.bing.net/th?q='+kwna+'-poster');
+                         img_head = encode_img('https://tse1.mm.bing.net/th?q='+kwnablogspot+'-poster');
                      }
 
                      document.title = "Read "+kwDecode+" Online";
