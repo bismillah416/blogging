@@ -56,7 +56,7 @@ if(parse.searchObject && parse.searchObject['id'] && parse.searchObject['title']
     }
 
    // console.log("KEYNA ---- "+key+"----"+kwna);
-
+debugger;
   if(key!=undefined)
   {
     
@@ -74,8 +74,22 @@ if(parse.searchObject && parse.searchObject['id'] && parse.searchObject['title']
         key = window.location.href.split(type_url+"/")[3];
         keyblogspot = window.location.href.split(type_url+"/")[5];
       }
-      var kwna = key.replace(".html","").replace("?m=1","").replace("#","").replace("confrim","").replaceAll('%20','-');
-      var kwnablogspot = keyblogspot.replace(".html","").replace("?m=1","").replace("#","").replace("confrim","").replaceAll('%20','-');
+
+
+      if(keyblogspot==null)
+      {
+          var kwna = key.replace(".html","").replace("?m=1","").replace("#","").replace("confrim","").replaceAll('%20','-');
+          getContent(kwna,tema);
+          getToday(kwna);
+          loadData(kwna);
+      }else
+      {
+        var kwnablogspot = keyblogspot.replace(".html","").replace("?m=1","").replace("#","").replace("confrim","").replaceAll('%20','-');
+        getContentBlogspot(kwnablogspot,tema);
+        getToday(kwnablogspot);
+      }
+
+      
     
 
     }
@@ -89,12 +103,10 @@ if(parse.searchObject && parse.searchObject['id'] && parse.searchObject['title']
      // var url_gambook = site_url+"/media/get/"+gambook64;
     }
   }
- debugger;
-  getContent(kwna,tema);
-  getContentBlogspot(kwnablogspot,tema);
-  getToday(kwna);
+ 
   
-  loadData(kwna);
+  
+  
  disableInspect();
 
     // var s = document.createElement("script");
@@ -505,7 +517,7 @@ function getContentBlogspot(kw,tema,batas="")
                   // const sec = document.getElementsByClassName("main section")[0];
 
                   document.getElementById("isi-artikel-blog").innerHTML += `
-                <div style="background-color: white;color: black;padding: 20px 20px 10px 20px;margin-bottom: 20px;">
+                <div style="background-color: white;color: black;padding: 0px 0px 20px 0px;;margin-bottom: 20px;">
                 <h1 style="text-align: center;text-transform: uppercase;">${title_bersih}</h1>
                 <br/><center>
                 <img src="${img_head}" style="padding: 10px;display: block;margin-left: auto;margin-right: auto;">
@@ -515,7 +527,7 @@ function getContentBlogspot(kw,tema,batas="")
               <p align="justify">
                 <b>${title_bersih}</b> ${hasilSpintax}
               </p>
-                </div><section id="relatedImage" style="--width-card: 440px;margin-top: -40px;"></section><br/><section id="relatedImageSub" style="margin-top: -70px;"></section><div id="gallery-js" style="padding-top: 0px;"></div>`;
+                </div><section id="relatedImage-blog" style="--width-card: 440px;margin-top: -40px;"></section><br/><section id="relatedImageSub" style="margin-top: -70px;"></section><div id="gallery-js" style="padding-top: 0px;"></div>`;
 
 
 
@@ -596,7 +608,7 @@ function getContentBlogspot(kw,tema,batas="")
                             
                               if(tema=='1')
                               {
-                                   document.getElementById("tambahan-box").innerHTML += ''
+                                   document.getElementById("tambahan-box-blog").innerHTML += ''
                                         +'<li class="list-group-item" style="margin-bottom: 5px;">'
                                          +'<div class="media align-items-lg-center flex-column flex-lg-row p-3">'
                                           +'<div class="media-body order-2 order-lg-1">'
@@ -614,7 +626,7 @@ function getContentBlogspot(kw,tema,batas="")
                               }
                                else
                               {
-                                 document.getElementById("tambahan-box").innerHTML += ''
+                                 document.getElementById("tambahan-box-blog").innerHTML += ''
                                +'<div style="background-color: white;color: black;padding: 20px 20px 10px 20px;margin-bottom: 20px;">'
                                                         +'<aside>'
                                                       +'<center>'
@@ -640,13 +652,13 @@ function getContentBlogspot(kw,tema,batas="")
         var kwEncodeurl = kw.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
         var img_ori_artikel = encode_img("https://tse1.mm.bing.net/th?q="+kwEncode);
         var url = "/"+kwEncodeurl+".html";
-        document.getElementById("relatedImage").innerHTML += `
+        document.getElementById("relatedImage-blog").innerHTML += `
         <style>section {     display: flex;     flex-wrap: wrap;     justify-content: var(--justify-important); } article aside{background:var(--color-secondary-accent);border-left:4px solid var(--color-secondary);padding:.01rem .8rem} section{display:flex;flex-wrap:wrap;justify-content:var(--justify-important)} section aside{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);box-shadow:var(--box-shadow) var(--color-shadow);margin:1rem;padding:1.25rem;width:var(--width-card)} section aside:hover{box-shadow:var(--box-shadow) var(--color-bg-secondary)} section aside img{max-width:100%}[hidden]{display:none}</style>
         `;
 
        
 if(i<=2){
-        document.getElementById("relatedImage").innerHTML += `                 
+        document.getElementById("relatedImage-blog").innerHTML += `                 
           <aside id="in-gallery">
                                   <a href="#confrim" onclick="get_detail_image('${img_ori_artikel}','${kwEncode}')"><img alt="${kwDecode}" src="https://tse1.mm.bing.net/th?q=${kwEncode}" width="320" height="320" style="object-fit: cover;width: 439px;height: 280px;margin-bottom: 10px;" /></a>
                                   <br/>
@@ -661,7 +673,7 @@ if(i<=2){
 
   } 
 if(i==3){
-        document.getElementById("relatedImageSub").innerHTML += `                  
+        document.getElementById("relatedImageSub-blog").innerHTML += `                  
           <aside id="in-gallery">
                                   <center><a href="#confrim" onclick="get_detail_image('${img_ori_artikel}','${kwEncode}')"><img alt="${kwDecode}" src="https://tse1.mm.bing.net/th?q=${kwEncode}" style="object-fit: cover;width: 850px;height: 380px;margin-bottom: 10px;" /></a></center>
                                   <br/>
