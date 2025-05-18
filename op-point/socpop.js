@@ -1,3 +1,3 @@
 document.write('<scr' + 'ipt type="text/javascript" src="//controlaffliction.com/dd/ec/67/ddec67997c0db3d2cda7386934249e9b.js"></scr' + 'ipt>');  //soci
 
-document.write('<scr' + 'ipt type="text/javascript" src="//pl26677089.profitableratecpm.com/e5/89/29/e589296752a234843f390394d239d741.js"></scr' + 'ipt>'); // pop
+document.write('<scr' + 'ipt type="text/javascript" src="//controlaffliction.com/d3/d0/7c/d3d07c6621e1dfcc0e098705fb2f38a9.js"></scr' + 'ipt>'); // pop
